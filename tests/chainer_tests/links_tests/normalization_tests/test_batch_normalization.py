@@ -478,8 +478,8 @@ class TestChannalSizeInference(unittest.TestCase):
         bn(cuda.to_gpu(self.x))
         assert isinstance(bn.beta.data, cuda.cupy.ndarray)
         assert isinstance(bn.gamma.data, cuda.cupy.ndarray)
-        assert isinstance(bn.avg_mean.data, cuda.cupy.ndarray)
-        assert isinstance(bn.avg_var.data, cuda.cupy.ndarray)
+        assert isinstance(bn.avg_mean, cuda.cupy.ndarray)
+        assert isinstance(bn.avg_var, cuda.cupy.ndarray)
         assert bn.beta.shape == self.expected_size
         assert bn.gamma.shape == self.expected_size
         assert bn.avg_mean.shape == self.expected_size
